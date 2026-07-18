@@ -20,7 +20,7 @@
    - ถ้าจะ commit ตัว PDF เข้า repo ให้ถามผู้ใช้ก่อน (เอกสารราชการเผยแพร่ได้ แต่ควรยืนยัน)
 2. **ตั้งค่า repo บน GitHub** (ทำบนหน้าเว็บ ผู้ใช้ทำเองได้)
    - branch เดียวที่มีคือ `claude/health-sql-query-community-vj08nw` และเป็น default อยู่ ถ้าอยากได้ชื่อ `main` ให้ rename ที่ Settings > Branches (rename ปลอดภัยกว่าสร้างใหม่ ลิงก์เก่า redirect ให้อัตโนมัติ)
-   - เปิดใช้ Issues ใน Settings ถ้ายังไม่เปิด เพราะ flow ของชุมชนพึ่ง issue forms ทั้งหมด
+   - Issues เปิดใช้อยู่แล้ว (ตรวจเมื่อ 2026-07-18: has_issues = true) ไม่ต้องทำอะไรเพิ่ม
 3. **หาโรงพยาบาลนำร่อง 1-2 แห่ง** รัน query ทั้งสองตัวเทียบข้อมูลจริง เพื่อเปลี่ยนสถานะ draft เป็น validated (นิยามของ validated อยู่ใน CONTRIBUTING.md หัวข้อการ review)
 
 ## การตัดสินใจที่จบแล้ว (อย่ารื้อ)
