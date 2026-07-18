@@ -59,6 +59,11 @@ queries/service-quality/README.md
 - Principal diagnosis คือ `diagtype = '1'`
 - ทุกไฟล์ .sql ต้องมี metadata header ตามแบบใน [templates/query-template.sql](templates/query-template.sql)
 
+## การอ้างถึง issue form ในเอกสาร
+
+- เมื่ออ้างชื่อ issue form ในเอกสารใด ให้ copy จาก field `name:` ใน `.github/ISSUE_TEMPLATE/*.yml` ตรงตัวอักษรทุกตัว ห้ามพิมพ์จากความจำ (session แรกสะกดต่างกัน 3 แบบใน 3 ไฟล์ กลายเป็น blocker ทั้งหมด)
+- ลิงก์ชวนเปิด issue ให้ชี้ไปที่ `https://github.com/niratorn/MOPH_KPI-Report_SQL/issues/new?template=<ชื่อไฟล์>.yml` ห้ามลิงก์ไปที่ไฟล์ .yml ตรง ๆ เพราะจะเปิด source ของ YAML ไม่ใช่ฟอร์ม
+
 ## เมื่อเพิ่ม query ใหม่
 
 1. สร้างโฟลเดอร์ของตัวเองใต้หมวดที่ถูกต้อง เช่น `queries/ncd/<ชื่อ-query>/`
