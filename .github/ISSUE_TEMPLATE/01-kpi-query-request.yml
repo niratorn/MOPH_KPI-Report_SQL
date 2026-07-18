@@ -1,0 +1,61 @@
+name: ขอ Query ตัวชี้วัด
+description: แจ้งขอ query สำหรับตัวชี้วัดที่ยังไม่มีใน repository นี้ เพื่อให้สมาชิกชุมชนช่วยกันเขียน
+labels: ["query-request"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ขอบคุณที่ช่วยบอกว่าชุมชนยังขาด query อะไร
+        กรุณากรอกข้อมูลให้มากที่สุดเท่าที่ทราบ และห้ามแนบข้อมูลผู้ป่วยจริงทุกกรณี
+        ตรวจสอบนิยามและค่าเป้าหมายจาก template ตัวชี้วัดของปีงบประมาณปัจจุบันใน HDC หรือ Health KPI
+  - type: input
+    id: kpi-name
+    attributes:
+      label: ชื่อตัวชี้วัด
+      description: ชื่อตัวชี้วัดตามที่ปรากฏใน HDC หรือ Health KPI
+      placeholder: เช่น ร้อยละของหญิงตั้งครรภ์ที่ฝากครรภ์ครั้งแรกก่อน 12 สัปดาห์
+    validations:
+      required: true
+  - type: dropdown
+    id: category
+    attributes:
+      label: หมวด
+      description: เลือกหมวดที่ใกล้เคียงที่สุด
+      options:
+        - อนามัยแม่และเด็ก
+        - NCD
+        - มะเร็งและการคัดกรอง
+        - คุณภาพบริการ
+        - อื่น ๆ
+    validations:
+      required: true
+  - type: input
+    id: definition-source
+    attributes:
+      label: แหล่งนิยาม
+      description: เช่น ลิงก์ template ตัวชี้วัดใน HDC หรือ Health KPI หรือชื่อเอกสารนิยามที่ใช้อ้างอิง
+      placeholder: เช่น ลิงก์ template ตัวชี้วัดใน HDC
+    validations:
+      required: false
+  - type: input
+    id: his-version
+    attributes:
+      label: HIS และรุ่น
+      description: ระบบ HIS ที่โรงพยาบาลของท่านใช้ พร้อมรุ่นถ้าทราบ
+      placeholder: "HOSxP v3 / HOSxP XE"
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: รายละเอียดเพิ่มเติม / สิ่งที่ลองแล้ว
+      description: เช่น query ที่เคยลองเขียนเอง ตารางที่คาดว่าเกี่ยวข้อง หรือปัญหาที่ติดอยู่ (ห้ามวางผลลัพธ์ที่มีข้อมูลผู้ป่วยจริง)
+    validations:
+      required: false
+  - type: checkboxes
+    id: confirm-no-patient-data
+    attributes:
+      label: การยืนยันเรื่องข้อมูลผู้ป่วย
+      options:
+        - label: ข้าพเจ้ายืนยันว่าไม่ได้แนบข้อมูลผู้ป่วยจริงใน issue นี้ ตามข้อกำหนดใน docs/data-privacy.md
+          required: true

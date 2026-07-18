@@ -1,0 +1,73 @@
+name: แบ่งปัน Query (ไม่ต้องใช้ git)
+description: ส่ง query ของท่านผ่านฟอร์มนี้ maintainer จะจัดรูปแบบและนำเข้า repository ให้ พร้อมให้เครดิตท่าน
+labels: ["query-share"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ขอบคุณที่แบ่งปัน query ให้เพื่อนร่วมวิชาชีพทั่วประเทศ
+        ไม่ต้องกังวลเรื่องรูปแบบไฟล์หรือ git ทีม maintainer จะช่วยจัดให้ตรงตาม template เอง
+        ข้อเดียวที่ขอเข้มงวด: ห้ามมีข้อมูลผู้ป่วยจริงในฟอร์มนี้ ตัวอย่างผลลัพธ์ต้องเป็นข้อมูลสมมติเท่านั้น
+  - type: input
+    id: kpi-name
+    attributes:
+      label: ชื่อตัวชี้วัด
+      placeholder: เช่น ร้อยละของหญิงตั้งครรภ์ที่มีภาวะโลหิตจาง
+    validations:
+      required: true
+  - type: dropdown
+    id: category
+    attributes:
+      label: หมวด
+      description: เลือกหมวดที่ใกล้เคียงที่สุด
+      options:
+        - อนามัยแม่และเด็ก
+        - NCD
+        - มะเร็งและการคัดกรอง
+        - คุณภาพบริการ
+        - อื่น ๆ
+    validations:
+      required: true
+  - type: input
+    id: hosxp-version
+    attributes:
+      label: รุ่น HOSxP ที่ทดสอบ
+      description: รุ่น HOSxP ที่ท่านรัน query นี้จริง พร้อมรุ่น MySQL/MariaDB ถ้าทราบ
+      placeholder: "เช่น HOSxP v3, MariaDB 10.4"
+    validations:
+      required: true
+  - type: textarea
+    id: definition
+    attributes:
+      label: นิยามและแหล่งอ้างอิง
+      description: สรุปนิยามตัวชี้วัด (ตัวตั้ง ตัวหาร เงื่อนไข) และระบุแหล่งอ้างอิงที่ตรวจสอบได้ เช่น template ตัวชี้วัดของปีงบประมาณปัจจุบันใน HDC หรือ Health KPI ห้ามอ้างอิงลอย ๆ
+    validations:
+      required: true
+  - type: textarea
+    id: sql-code
+    attributes:
+      label: วาง SQL ที่นี่
+      description: วาง query ทั้งหมด ถ้ามี header metadata ตาม templates/query-template.sql แล้วยิ่งดี
+      render: sql
+    validations:
+      required: true
+  - type: textarea
+    id: parameters
+    attributes:
+      label: พารามิเตอร์ที่โรงพยาบาลอื่นต้องปรับ
+      description: จุดที่โรงพยาบาลอื่นต้องแก้ก่อนใช้ เช่น รหัส lab, ชื่อรายการ lab, รหัสแผนก, ช่วงวันที่ปีงบประมาณ
+      placeholder: |
+        เช่น
+        - lab_items_code ของ Hb ต้องเปลี่ยนตามรหัสของแต่ละโรงพยาบาล
+        - @start_date และ @end_date ตั้งตามปีงบประมาณที่ต้องการ
+    validations:
+      required: true
+  - type: checkboxes
+    id: confirmations
+    attributes:
+      label: การยืนยัน
+      options:
+        - label: ข้าพเจ้ายืนยันว่าไม่มีข้อมูลผู้ป่วยจริงในฟอร์มนี้ ตัวอย่างผลลัพธ์ (ถ้ามี) เป็นข้อมูลสมมติทั้งหมด
+          required: true
+        - label: ข้าพเจ้ายินยอมแบ่งปัน query นี้ภายใต้ MIT license ของ repository
+          required: true
